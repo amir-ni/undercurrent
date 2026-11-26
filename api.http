@@ -1,0 +1,31 @@
+# Request collection for VS Code REST Client / JetBrains HTTP Client. curl equivalents are in the README.
+@base = http://localhost:8787
+
+### Endpoint index
+GET {{base}}/v1
+
+### Full insight report, last 30 days (default)
+GET {{base}}/v1/repos/honojs/hono/insights
+
+### Explicit period
+GET {{base}}/v1/repos/honojs/hono/insights?since=2026-10-01&until=2026-11-01
+
+### One leaderboard: contributors | reviewers | closers
+GET {{base}}/v1/repos/honojs/hono/leaderboards/reviewers?days=90&limit=20
+
+### LLM narrative with hypotheses, confidence and evidence chain (needs ANTHROPIC_API_KEY)
+GET {{base}}/v1/repos/honojs/hono/narrative?days=30
+
+### Conditional request: paste the ETag from a previous response to get 304 Not Modified
+GET {{base}}/v1/repos/honojs/hono/insights
+If-None-Match: "paste-etag-here"
+
+### Validation error (problem+json, 400)
+GET {{base}}/v1/repos/honojs/hono/insights?since=2026-13-01
+
+### Operations
+GET {{base}}/healthz
+###
+GET {{base}}/readyz
+###
+GET {{base}}/metrics

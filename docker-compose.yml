@@ -1,0 +1,22 @@
+services:
+  undercurrent:
+    build: .
+    image: undercurrent:local
+    ports:
+      - "8787:8787"
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN:?Set GITHUB_TOKEN in your shell or .env}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-}
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+    volumes:
+      - undercurrent-data:/data
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  undercurrent-data:
