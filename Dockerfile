@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.7
 
 # ---- build: install all deps, typecheck, test, build the UI ----
-FROM node:24-alpine AS build
+FROM node:26-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
@@ -12,7 +12,7 @@ COPY web ./web
 RUN npm run check && npm run build
 
 # ---- runtime: production deps only, non-root, read-only friendly ----
-FROM node:24-alpine AS runtime
+FROM node:26-alpine AS runtime
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=8787 DATABASE_PATH=/data/undercurrent.db
 WORKDIR /app
 COPY package.json package-lock.json ./
