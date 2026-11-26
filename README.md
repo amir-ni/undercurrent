@@ -2,7 +2,7 @@
 
 **See the work behind the work.** Undercurrent is a small service that reads a public GitHub repository and answers a question commit graphs can't: *who is carrying the review load, and is it healthy?* It exposes a REST API, a Prometheus endpoint, and a lightweight web UI. An LLM analyst then explains what is unusual and why, with a confidence score and an evidence chain that links every claim back to the exact number it rests on.
 
-![CI](https://img.shields.io/badge/CI-GitHub_Actions-0E7BE0) ![Node](https://img.shields.io/badge/node-%E2%89%A522.18-0E7BE0) ![License](https://img.shields.io/badge/license-MIT-0E7BE0)
+[![CI](https://github.com/amir-ni/undercurrent/actions/workflows/ci.yml/badge.svg)](https://github.com/amir-ni/undercurrent/actions/workflows/ci.yml) ![Node](https://img.shields.io/badge/node-%E2%89%A522.18-0E7BE0) ![License](https://img.shields.io/badge/license-MIT-0E7BE0)
 
 ---
 
