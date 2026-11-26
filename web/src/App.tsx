@@ -1,4 +1,4 @@
-import { BookOpen, Github, Waves } from "lucide-react";
+import { BookOpen, FolderGit2, Waves } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Analyst, type NarrativeState } from "./components/Analyst.tsx";
 import { ErrorPanel, Skeleton } from "./components/common.tsx";
@@ -174,7 +174,7 @@ function ReportView({
         <div>
           <h2 className="report-title" ref={headingRef} tabIndex={-1}>
             <a href={repoUrl} target="_blank" rel="noopener noreferrer">
-              <Github size={22} aria-hidden="true" style={{ verticalAlign: -3, marginRight: 8 }} />
+              <FolderGit2 size={22} aria-hidden="true" style={{ verticalAlign: -3, marginRight: 8 }} />
               {r.repo}
             </a>
           </h2>
