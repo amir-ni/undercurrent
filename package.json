@@ -1,0 +1,38 @@
+{
+  "name": "undercurrent",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Collaboration insights for GitHub repositories: who carries the review load, how fast work flows, and an LLM analyst that explains why.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning --env-file-if-exists=.env src/index.ts",
+    "dev": "node --disable-warning=ExperimentalWarning --watch --env-file-if-exists=.env src/index.ts",
+    "dev:web": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p web/tsconfig.json",
+    "test": "node --disable-warning=ExperimentalWarning --test \"test/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
+    "@hono/node-server": "^2.1.11",
+    "hono": "^4.13.22",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "lucide-react": "^0.555.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.4.0"
+  }
+}
